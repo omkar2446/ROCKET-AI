@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- ===== ROCKET AI META TAGS ===== -->
+<meta name="title" content="ROCKET AI – Iron Man JARVIS Style Voice Assistant">
+<meta name="description" content="ROCKET AI is a futuristic Iron Man–inspired JARVIS-style voice assistant with a 3D HUD interface, real-time voice commands, and smart automation built using Flask and modern web technologies.">
+<meta name="keywords" content="Rocket AI, JARVIS AI, Iron Man AI, Voice Assistant, AI HUD, Stark Industries UI, Flask AI Assistant, Web AI, Voice Controlled AI, 3D AI Interface">
+<meta name="author" content="Omkar Tambe">
+<meta name="robots" content="index, follow">
+
+<!-- ===== MOBILE & THEME ===== -->
+<meta name="theme-color" content="#00f3ff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ROCKET AI">
+
+<!-- ===== OPEN GRAPH (FACEBOOK / WHATSAPP) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="ROCKET AI – JARVIS Style AI Assistant">
+<meta property="og:description" content="A futuristic Iron Man–style AI assistant with real-time voice control and holographic HUD interface.">
+<meta property="og:image" content="/static/rocket-ai-preview.png">
+<meta property="og:url" content="http://127.0.0.1:5000">
+<meta property="og:site_name" content="ROCKET AI">
+
+<!-- ===== TWITTER / X ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ROCKET AI – Futuristic Voice Assistant">
+<meta name="twitter:description" content="Experience Iron Man–style JARVIS AI with live voice commands and a 3D HUD interface.">
+<meta name="twitter:image" content="/static/rocket-ai-preview.png">
+<!-- ===== ROCKET AI : POWERFUL META TAGS ===== -->
+
+<meta name="title" content="ROCKET AI – Powerful JARVIS Style Voice-Controlled Artificial Intelligence">
+<meta name="description" content="ROCKET AI is a powerful next-generation artificial intelligence inspired by Iron Man's JARVIS, featuring real-time voice control, advanced automation, a 3D holographic HUD interface, and smart decision-making.">
+<meta name="keywords" content="
+powerful AI,
+advanced AI,
+artificial intelligence,
+jarvis ai,
+iron man ai,
+rocket ai,
+voice controlled ai,
+voice assistant ai,
+smart ai system,
+futuristic ai,
+next generation ai,
+ai hud interface,
+3d ai interface,
+holographic ai,
+ai automation,
+ai personal assistant,
+intelligent system,
+machine intelligence,
+ai technology,
+real time ai,
+flask ai assistant,
+web based ai,
+human computer interaction,
+speech recognition ai,
+text to speech ai,
+ai innovation,
+stark industries ai,
+sci fi ai interface,
+high performance ai,
+cutting edge ai
+">
+
+<meta name="author" content="Omkar Tambe">
+<meta name="robots" content="index, follow">
+
+<!-- ===== MOBILE & APP EXPERIENCE ===== -->
+<meta name="theme-color" content="#00f3ff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ROCKET AI">
+
+<!-- ===== OPEN GRAPH (SOCIAL SHARING) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="ROCKET AI – Powerful Futuristic Voice AI Assistant">
+<meta property="og:description" content="A powerful Iron Man–style JARVIS AI with voice commands, holographic HUD, and advanced automation.">
+<meta property="og:image" content="/static/rocket-ai-preview.png">
+<meta property="og:url" content="http://127.0.0.1:5000">
+<meta property="og:site_name" content="ROCKET AI">
+<meta name="title" content="ROCKET AI – Powerful JARVIS Style Voice-Controlled Artificial Intelligence">
+<meta name="description" content="ROCKET AI is a powerful, futuristic JARVIS-style artificial intelligence with real-time voice commands, holographic HUD interface, smart automation, and advanced AI capabilities built using modern web technologies.">
+<meta name="keywords" content="
+rocket ai,
+powerful ai,
+advanced artificial intelligence,
+jarvis ai,
+iron man ai,
+voice controlled ai,
+ai assistant,
+smart ai system,
+futuristic ai,
+ai hud interface,
+3d ai interface,
+holographic ai,
+ai automation,
+ai personal assistant,
+intelligent ai system,
+real time ai,
+speech recognition ai,
+text to speech ai,
+next generation ai,
+cutting edge ai,
+ai innovation
+">
+<meta name="author" content="Omkar Tambe">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta name="google" content="nositelinkssearchbox">
+<meta name="rating" content="general">
+<meta name="distribution" content="global">
+<meta name="revisit-after" content="1 days">
+<meta name="language" content="en">
+<meta name="title" content="ROCKET AI – Powerful JARVIS Style Voice-Controlled Artificial Intelligence">
+<meta name="description" content="ROCKET AI is a powerful, futuristic JARVIS-style artificial intelligence with real-time voice commands, holographic HUD interface, smart automation, and advanced AI capabilities built using modern web technologies.">
+<meta name="keywords" content="
+rocket ai,
+powerful ai,
+advanced artificial intelligence,
+jarvis ai,
+iron man ai,
+voice controlled ai,
+ai assistant,
+smart ai system,
+futuristic ai,
+ai hud interface,
+3d ai interface,
+holographic ai,
+ai automation,
+ai personal assistant,
+intelligent ai system,
+real time ai,
+speech recognition ai,
+text to speech ai,
+next generation ai,
+cutting edge ai,
+ai innovation
+">
+<meta name="author" content="Omkar Tambe">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ROCKET AI – Powerful Futuristic Voice AI Assistant">
+<meta property="og:description" content="Experience a powerful Iron Man–style JARVIS AI with real-time voice interaction and a futuristic holographic HUD interface.">
+<meta property="og:image" content="/static/rocket-ai-preview.png">
+<meta property="og:url" content="https://your-domain.com">
+<meta property="og:site_name" content="ROCKET AI">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ROCKET AI – Powerful AI Assistant">
+<meta name="twitter:description" content="A next-generation JARVIS-style AI with voice commands and a futuristic HUD interface.">
+<meta name="twitter:image" content="/static/rocket-ai-preview.png">
+<meta name="twitter:creator" content="@rocketai">
+<meta name="theme-color" content="#00f3ff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ROCKET AI">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<!-- ===== TWITTER / X ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ROCKET AI – Powerful AI Assistant">
+<meta name="twitter:description" content="Experience a powerful next-gen AI with real-time voice interaction and a futuristic 3D HUD.">
+<meta name="twitter:image" content="/static/rocket-ai-preview.png">
+<link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+<!-- ===== PERFORMANCE & SECURITY ===== -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+
+<!-- ===== SECURITY & PERFORMANCE ===== -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<title>ROCKET AI </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --bg:#020617;
+  --hud:#00141f;
+  --cyan:#00f3ff;
+  --cyan-soft:rgba(0,243,255,.4);
+  --white-soft:rgba(255,255,255,.85);
+  --accent:#18a4ff;
+  --danger:#ff3366;
+  --grid-line:rgba(0,243,255,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  height:100vh;
+  background:
+    radial-gradient(circle at 0 0,#053249 0,#000 60%),
+    radial-gradient(circle at 100% 100%,#04101f 0,#000 55%),
+    #000;
+  color:var(--cyan);
+  font-family:'Orbitron',sans-serif;
+  overflow:hidden;
+}
+
+/* HUD visuals */
+.starfield{position:fixed;inset:0;opacity:.25;pointer-events:none}
+.hud-grid{
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:60px 60px;
+  opacity:.35;
+  pointer-events:none;
+}
+
+/* Top bar */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;
+  height:40px;
+  display:flex;
+  align-items:center;
+  padding:0 30px;
+  border-bottom:1px solid rgba(0,243,255,.4);
+  background:linear-gradient(to bottom,rgba(0,0,0,.9),transparent);
+}
+.top-bar .title{margin-left:auto;font-size:.8rem;letter-spacing:4px}
+
+/* Layout */
+.layout{
+  position:absolute;
+  inset:40px 20px 20px;
+  display:grid;
+  grid-template-columns:280px 1fr 260px;
+  grid-template-rows:1fr 220px;
+  gap:12px;
+}
+
+/* Panels */
+.panel{
+  background:radial-gradient(circle at top,var(--hud),#000);
+  border:1px solid rgba(0,243,255,.4);
+  border-radius:10px;
+  box-shadow:0 0 25px rgba(0,243,255,.25);
+  padding:18px 14px;
+  position:relative;
+}
+
+/* Stats */
+.stat{margin-bottom:14px}
+.stat-title{font-size:.6rem;color:var(--white-soft)}
+.bar{height:6px;background:#02151f;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;width:70%;background:linear-gradient(90deg,var(--accent),var(--cyan))}
+
+/* Arc */
+.arc-panel{grid-row:1/span 2;display:flex;justify-content:center;align-items:center}
+.arc-wrapper{width:420px;height:420px;position:relative;transform-style:preserve-3d}
+.arc-ring{position:absolute;inset:20px;border-radius:50%;border:2px solid var(--cyan-soft);animation:spin 26s linear infinite}
+.arc-ring.mid{inset:60px;border-color:var(--accent);animation-duration:18s;animation-direction:reverse}
+.arc-ring.inner{inset:100px;border-color:var(--danger);animation-duration:14s}
+.arc-core{
+  position:absolute;inset:150px;border-radius:50%;
+  background:radial-gradient(circle,#fff,#7ffcff 25%,transparent 60%);
+  box-shadow:0 0 80px var(--cyan);
+  animation:pulse 2.4s infinite;
+}
+
+/* Right */
+.right-panel{font-size:.6rem;color:var(--white-soft)}
+.weather-row{display:flex;justify-content:space-between;margin-bottom:6px}
+
+/* Chat */
+.chat-panel{grid-column:1/span 2;display:flex;flex-direction:column}
+.output{
+  flex:1;background:#010b1c;border:1px solid rgba(0,243,255,.4);
+  border-radius:8px;padding:10px;overflow-y:auto;font-size:.7rem;
+}
+.user{text-align:right;color:#4ade80;margin-bottom:6px}
+.bot{text-align:left;color:var(--white-soft);margin-bottom:6px}
+
+.controls{display:flex;gap:8px;margin-top:10px}
+input{
+  flex:1;background:#000;border:1px solid var(--cyan);
+  color:var(--cyan);padding:8px;border-radius:6px;
+}
+button{
+  background:rgba(0,243,255,.12);border:1px solid var(--cyan);
+  color:var(--cyan);padding:8px 12px;border-radius:6px;cursor:pointer;
+}
+button:hover{background:var(--cyan);color:#000}
+.mic-active{box-shadow:0 0 25px #22c55e}
+
+/* Animations */
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{transform:scale(1.12)}}
+
+/* Mobile */
+@media(max-width:980px){
+  .layout{grid-template-columns:1fr;grid-template-rows:auto 360px auto 220px}
+  .arc-panel{grid-row:auto}
+  .chat-panel{grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hud-grid"></div>
+
+<header class="top-bar">
+  <div class="title">STARK INDUSTRIES • ROCKET AI HUD</div>
+</header>
+
+<div class="layout">
+
+  <section class="panel">
+    <div class="stat"><div class="stat-title">ARC OUTPUT</div><div class="bar"><div class="bar-fill" style="width:87%"></div></div></div>
+    <div class="stat"><div class="stat-title">CPU CLUSTER</div><div class="bar"><div class="bar-fill" style="width:64%"></div></div></div>
+    <div class="stat"><div class="stat-title">NETWORK</div><div class="bar"><div class="bar-fill" style="width:92%"></div></div></div>
+  </section>
+
+  <section class="panel arc-panel">
+    <div class="arc-wrapper" id="arcWrapper">
+      <div class="arc-ring"></div>
+      <div class="arc-ring mid"></div>
+      <div class="arc-ring inner"></div>
+      <div class="arc-core"></div>
+    </div>
+  </section>
+
+  <section class="panel right-panel">
+    <div class="weather-row"><span>TEMP</span><span>13°C</span></div>
+    <div class="weather-row"><span>SKY</span><span>CLEAR</span></div>
+    <div class="weather-row"><span>WIND</span><span>7 km/h</span></div>
+  </section>
+
+  <section class="panel chat-panel">
+    <div class="output" id="output">
+      <div class="bot">Systems online. Voice loop ready.</div>
+    </div>
+    <div class="controls">
+      <input id="input" placeholder="Issue command to ROCKET AI..." />
+      <button onclick="sendCommand()">SEND</button>
+      <button id="mic">🎤</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const output = document.getElementById("output");
+const input  = document.getElementById("input");
+const micBtn = document.getElementById("mic");
+const arcWrapper = document.getElementById("arcWrapper");
+
+let listening = false;
+let speaking  = false;
+
+/* Speech Recognition */
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = SpeechRecognition ? new SpeechRecognition() : null;
+if(recognition){
+  recognition.lang = "en-US";
+  recognition.continuous = false;
+}
+
+/* Message */
+function addMsg(text,user=false){
+  const d=document.createElement("div");
+  d.className=user?"user":"bot";
+  d.textContent=(user?"You: ":"Rocket: ")+text;
+  output.appendChild(d);
+  output.scrollTop=output.scrollHeight;
+
+  if(!user){
+    speaking = true;
+    const u=new SpeechSynthesisUtterance(text);
+    u.rate=.95;
+    u.onend=()=>{
+      speaking=false;
+      if(listening) setTimeout(()=>recognition.start(),400);
+    };
+    speechSynthesis.speak(u);
+  }
+}
+
+/* Send */
+async function sendCommand(text=null){
+  const q=text||input.value.trim();
+  if(!q)return;
+  addMsg(q,true);
+  input.value="";
+  try{
+    const r=await fetch("/process",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({query:q})
+    });
+    const d=await r.json();
+    addMsg(d.response);
+  }catch{
+    addMsg("Backend connection failed.");
+  }
+}
+
+/* Mic loop */
+if(recognition){
+  micBtn.onclick=async()=>{
+    if(!listening){
+      try{
+        await navigator.mediaDevices.getUserMedia({audio:true});
+        listening=true;
+        micBtn.classList.add("mic-active");
+        recognition.start();
+      }catch{
+        addMsg("Microphone permission denied.");
+      }
+    }else{
+      listening=false;
+      micBtn.classList.remove("mic-active");
+      recognition.stop();
+    }
+  };
+
+  recognition.onresult=e=>{
+    if(speaking) return;
+    recognition.stop();
+    sendCommand(e.results[0][0].transcript);
+  };
+
+  recognition.onend=()=>{
+    if(listening && !speaking){
+      setTimeout(()=>recognition.start(),300);
+    }
+  };
+}
+
+/* Enter key */
+input.onkeydown=e=>{if(e.key==="Enter")sendCommand()};
+
+/* Parallax */
+document.addEventListener("mousemove",e=>{
+  const x=(e.clientX/window.innerWidth-.5)*15;
+  const y=(e.clientY/window.innerHeight-.5)*-15;
+  arcWrapper.style.transform=`rotateX(${y}deg) rotateY(${x}deg)`;
+});
+</script>
+
+</body>
+</html>
