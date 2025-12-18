@@ -3,9 +3,4 @@ gunicorn
 requests
 wikipedia
 pyjokes
-pyautogui
-pydub
 openai
-playsound
-SpeechRecognition
-pyttsx3     
