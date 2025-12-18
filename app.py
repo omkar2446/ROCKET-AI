@@ -1,14 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import datetime
 import wikipedia
-import webbrowser
+import pytz
 
-# Optional imports
-try:
-    import pyautogui
-except:
-    pyautogui = None
-
+# Optional imports (safe on local only)
 try:
     import pyjokes
 except:
@@ -18,48 +13,69 @@ app = Flask(__name__)
 
 # ---------------- CONFIG ----------------
 CREATOR_NAME = "Omkar Tambe"
+IST = pytz.timezone("Asia/Kolkata")
 
 # ----------------------------------------
 def process_command(query):
     query = query.lower().strip()
 
     if not query:
-        return "Please say something."
+        return {"response": "Please say something."}
 
     # -------- STOP / EXIT --------
     if any(word in query for word in ["stop", "exit", "offline", "goodbye"]):
-        return "TERMINATE"
+        return {"response": "TERMINATE"}
 
-    # -------- BASIC INFO --------
+    # -------- TIME & DATE (IST) --------
+    now = datetime.datetime.now(IST)
+
     if "time" in query:
-        return f"Sir, the time is {datetime.datetime.now().strftime('%I:%M %p')}"
+        return {
+            "response": f"Sir, the time is {now.strftime('%I:%M %p')}"
+        }
 
     if "date" in query:
-        return f"Sir, today's date is {datetime.datetime.now().strftime('%d %B %Y')}"
+        return {
+            "response": f"Sir, today's date is {now.strftime('%d %B %Y')}"
+        }
 
+    # -------- GREETING --------
     if query in ["hello", "hi", "hey"]:
-        return "Hello Sir! I am Rocket AI. How can I help you?"
+        return {
+            "response": "Hello Sir! I am Rocket AI. How can I help you?"
+        }
 
     # -------- GOOGLE SEARCH --------
     if "google search" in query:
         search = query.replace("google search", "").strip()
-        webbrowser.open(f"https://www.google.com/search?q={search}")
-        return f"Searching Google for {search}"
+        return {
+            "action": "open_url",
+            "url": f"https://www.google.com/search?q={search}",
+            "response": f"Searching Google for {search}"
+        }
 
     # -------- JOKES --------
     if "joke" in query:
-        return pyjokes.get_joke() if pyjokes else "Joke feature is unavailable."
+        if pyjokes:
+            return {"response": pyjokes.get_joke()}
+        return {"response": "Joke feature is unavailable."}
 
     # -------- MUSIC --------
     if "play" in query and "spotify" in query:
         song = query.replace("play", "").replace("spotify", "").strip()
-        webbrowser.open(f"https://open.spotify.com/search/{song}")
-        return f"Playing {song} on Spotify"
+        return {
+            "action": "open_url",
+            "url": f"https://open.spotify.com/search/{song}",
+            "response": f"Playing {song} on Spotify"
+        }
 
     if "play" in query:
         song = query.replace("play", "").strip()
-        webbrowser.open(f"https://www.youtube.com/results?search_query={song}")
-        return f"Playing {song} on YouTube"
+        return {
+            "action": "open_url",
+            "url": f"https://www.youtube.com/results?search_query={song}",
+            "response": f"Playing {song} on YouTube"
+        }
 
     # -------- OPEN WEBSITES --------
     if "open" in query:
@@ -85,42 +101,31 @@ def process_command(query):
 
         for site, url in sites.items():
             if site in query:
-                webbrowser.open(url)
-                return f"Opening {site}"
+                return {
+                    "action": "open_url",
+                    "url": url,
+                    "response": f"Opening {site}"
+                }
 
-        return "I couldn't find that website."
-
-    # -------- SYSTEM CONTROLS --------
-    if "screenshot" in query:
-        if pyautogui:
-            pyautogui.screenshot("rocket_screenshot.png")
-            return "Screenshot saved."
-        return "Screenshot feature not available."
-
-    if "volume up" in query:
-        if pyautogui:
-            for _ in range(5):
-                pyautogui.press("volumeup")
-            return "Volume increased."
-        return "Volume control not available."
-
-    if "volume down" in query:
-        if pyautogui:
-            for _ in range(5):
-                pyautogui.press("volumedown")
-            return "Volume decreased."
-        return "Volume control not available."
+        return {"response": "I couldn't find that website."}
 
     # -------- UNIVERSAL QUESTION ANSWER --------
     try:
-        return wikipedia.summary(query, sentences=2)
+        answer = wikipedia.summary(query, sentences=2)
+        return {"response": answer}
+
     except wikipedia.exceptions.DisambiguationError:
-        return "Your question is too broad. Please be specific."
+        return {"response": "Your question is too broad. Please be specific."}
+
     except wikipedia.exceptions.PageError:
-        webbrowser.open(f"https://www.google.com/search?q={query}")
-        return "I couldn't find a direct answer. Opening Google for you."
-    except:
-        return "I am not able to answer that right now."
+        return {
+            "action": "open_url",
+            "url": f"https://www.google.com/search?q={query}",
+            "response": "I couldn't find a direct answer. Opening Google for you."
+        }
+
+    except Exception:
+        return {"response": "I am not able to answer that right now."}
 
 # ---------------- ROUTES ----------------
 @app.route("/")
@@ -131,9 +136,8 @@ def index():
 def process():
     data = request.get_json()
     query = data.get("query", "")
-    response = process_command(query)
-    return jsonify({"response": response})
+    return jsonify(process_command(query))
 
 # ---------------- RUN ----------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
